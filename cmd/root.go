@@ -29,7 +29,7 @@ import (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "kong-plugin-cli",
+	Use:   "kong-plugin-gen",
 	Short: "KongPluginGen is a CLI tool designed to generate template files for creating Kong plugins. With a simple command, it creates the necessary Lua files (handler.lua and schema.lua) and directory structure, making it easier for developers to kickstart their Kong plugin development.",
 	Long: `KongPluginGen is a CLI tool designed to generate template files for creating Kong plugins. With a simple command, it creates the necessary Lua files (handler.lua and schema.lua) and directory structure, making it easier for developers to kickstart their Kong plugin development.
 

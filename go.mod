@@ -1,4 +1,4 @@
-module kong-plugin-cli
+module kong-plugin-gen
 
 go 1.22.0
 

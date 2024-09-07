@@ -21,7 +21,7 @@ THE SOFTWARE.
 */
 package main
 
-import "kong-plugin-cli/cmd"
+import "kong-plugin-gen/cmd"
 
 func main() {
 	cmd.Execute()
