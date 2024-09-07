@@ -15,13 +15,13 @@ To install KongPluginGen, simply use the go install command:
 go install github.com/maaaashi/kong-plugin-gen@latest
 ```
 
-Make sure that your Go environment is properly set up and that the $GOPATH/bin directory is included in your system's PATH, so you can run the kong-plugin-cli command from anywhere in your terminal.
+Make sure that your Go environment is properly set up and that the $GOPATH/bin directory is included in your system's PATH, so you can run the kong-plugin-gen command from anywhere in your terminal.
 
 ## Usage
 KongPluginGen is designed to be simple to use. You can generate a new Kong plugin with a single command.
 
 ```
-kong-plugin-cli [command]
+kong-plugin-gen [command]
 ```
 
 ## Available Commands
@@ -52,7 +52,7 @@ my-plugin/
 You can also generate an autocompletion script for your shell:
 
 ```
-kong-plugin-cli completion bash
+kong-plugin-gen completion bash
 ```
 
 ## Flags
@@ -62,7 +62,7 @@ kong-plugin-cli completion bash
 To get more detailed help on a specific command, run:
 
 ```
-kong-plugin-cli [command] --help
+kong-plugin-gen [command] --help
 ```
 
 ## Contributing
