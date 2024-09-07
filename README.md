@@ -44,8 +44,12 @@ This will generate a folder with the following structure:
 ```
 my-plugin/
 │
-├── handler.lua
-└── schema.lua
+├── src/
+│   │
+│   ├── handler.lua
+│   └── schema.lua
+│
+└── kong-plugin-my-plugin-0.1.0-1
 ```
 
 ### Generate Shell Autocompletion
