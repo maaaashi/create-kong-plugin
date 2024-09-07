@@ -1,0 +1,12 @@
+_format_version: "3.0"
+
+services:
+  - name: kong-plugin-chain
+    url: http://localhost
+    routes:
+      - name: test
+        paths:
+          - /test/
+        plugins:
+          - name: first
+          - name: second
