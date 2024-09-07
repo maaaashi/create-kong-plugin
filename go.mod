@@ -1,4 +1,4 @@
-module kong-plugin-gen
+module github.com/maaaashi/kong-plugin-gen
 
 go 1.22.0
 
