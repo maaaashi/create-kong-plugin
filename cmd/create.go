@@ -39,12 +39,31 @@ func writeTemplateToFile(filePath, tmpl, pluginName string) {
 }
 
 func createPluginTemplate(pluginName string) {
-	// プラグインディレクトリを作成
-	pluginDir := filepath.Join(".", pluginName)
-	if err := os.MkdirAll(pluginDir, os.ModePerm); err != nil {
+	pluginRootDir := filepath.Join(".", pluginName)
+	srcDir := filepath.Join(pluginRootDir, "/src")
+
+	if err := os.MkdirAll(srcDir, os.ModePerm); err != nil {
 		fmt.Println("Error creating directory:", err)
 		return
 	}
+
+	// rockspec テンプレート
+	rockspecTemplate := `
+package = "{{.PluginName}}"
+version = "0.1.0-1"
+
+source = {
+  url = ""
+}
+
+build = {
+    type = "builtin",
+    modules = {
+        ["kong.plugins.{{.PluginName}}.handler"] = "src/handler.lua",
+        ["kong.plugins.{{.PluginName}}.schema"] = "src/schema.lua"
+    }
+}
+	`
 
 	// handler.lua テンプレート
 	handlerTemplate := `
@@ -75,8 +94,9 @@ return {
 `
 
 	// テンプレートをファイルに書き込む
-	writeTemplateToFile(filepath.Join(pluginDir, "handler.lua"), handlerTemplate, pluginName)
-	writeTemplateToFile(filepath.Join(pluginDir, "schema.lua"), schemaTemplate, pluginName)
+	writeTemplateToFile(filepath.Join(pluginRootDir, "kong-plugin-"+pluginName+"-0.1.0-1.rockspec"), rockspecTemplate, pluginName)
+	writeTemplateToFile(filepath.Join(srcDir, "handler.lua"), handlerTemplate, pluginName)
+	writeTemplateToFile(filepath.Join(srcDir, "schema.lua"), schemaTemplate, pluginName)
 
 	fmt.Printf("Kong plugin template for '%s' created successfully!\n", pluginName)
 }
