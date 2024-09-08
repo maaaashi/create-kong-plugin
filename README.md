@@ -49,7 +49,7 @@ my-plugin/
 │   ├── handler.lua
 │   └── schema.lua
 │
-└── kong-plugin-my-plugin-0.1.0-1
+└── kong-plugin-my-plugin-0.1.0-1.rockspec
 ```
 
 ### Generate Shell Autocompletion
