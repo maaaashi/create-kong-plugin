@@ -1,3 +1,5 @@
+![kong](./docs/kong.png)
+
 # KongPluginGen
 
 KongPluginGen is a CLI tool designed to simplify and speed up the process of generating template files for creating Kong plugins. With just a single command, developers can quickly create the necessary files and directory structure needed for Kong plugin development, allowing them to focus on coding their plugin functionality.
