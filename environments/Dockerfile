@@ -1,11 +1,10 @@
 FROM alpine:latest as build
 RUN apk --no-cache add \
     lua5.3 lua5.3-dev luarocks5.3 \
-    build-base
+    build-base zip
 WORKDIR /src
 COPY ./example /src
-RUN luarocks make --pack-binary-rock
-
+RUN luarocks-5.3 make --pack-binary-rock
 
 FROM kong:3.7.1-ubuntu
 USER root
