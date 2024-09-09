@@ -49,7 +49,7 @@ func createPluginTemplate(pluginName string) {
 
 	// rockspec テンプレート
 	rockspecTemplate := `
-package = "{{.PluginName}}"
+package = "kong-plugin-{{.PluginName}}"
 version = "0.1.0-1"
 
 source = {
