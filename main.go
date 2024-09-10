@@ -21,7 +21,7 @@ THE SOFTWARE.
 */
 package main
 
-import "github.com/maaaashi/kong-plugin-gen/cmd"
+import "github.com/maaaashi/create-kong-plugin/cmd"
 
 func main() {
 	cmd.Execute()

@@ -1,7 +1,7 @@
 _format_version: "3.0"
 
 services:
-  - name: kong-plugin-gen
+  - name: create-kong-plugin
     url: http://localhost
     routes:
       - name: test

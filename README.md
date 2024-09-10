@@ -1,8 +1,8 @@
 ![kong](./docs/kong.png)
 
-# KongPluginGen
+# CreateKongPlugin
 
-KongPluginGen is a CLI tool designed to simplify and speed up the process of generating template files for creating Kong plugins. With just a single command, developers can quickly create the necessary files and directory structure needed for Kong plugin development, allowing them to focus on coding their plugin functionality.
+CreateKongPlugin is a CLI tool designed to simplify and speed up the process of generating template files for creating Kong plugins. With just a single command, developers can quickly create the necessary files and directory structure needed for Kong plugin development, allowing them to focus on coding their plugin functionality.
 
 ## Key Features
 - Quick Template Generation: Instantly generate template files for Kong plugins.
@@ -11,24 +11,23 @@ KongPluginGen is a CLI tool designed to simplify and speed up the process of gen
 
 ## Installation
 
-To install KongPluginGen, simply use the go install command:
+To install CreateKongPlugin, simply use the go install command:
 
 ```
-go install github.com/maaaashi/kong-plugin-gen@latest
+go install github.com/maaaashi/create-kong-plugin@latest
 ```
 
-Make sure that your Go environment is properly set up and that the $GOPATH/bin directory is included in your system's PATH, so you can run the kong-plugin-gen command from anywhere in your terminal.
+Make sure that your Go environment is properly set up and that the $GOPATH/bin directory is included in your system's PATH, so you can run the create-kong-plugin command from anywhere in your terminal.
 
 ## Usage
-KongPluginGen is designed to be simple to use. You can generate a new Kong plugin with a single command.
+CreateKongPlugin is designed to be simple to use. You can generate a new Kong plugin with a single command.
 
 ```
-kong-plugin-gen [command]
+create-kong-plugin my-plugin
 ```
 
 ## Available Commands
 - completion: Generate the autocompletion script for the specified shell.
-- create: Create a new Kong plugin template.
 - help: Display help information about any command.
 
 ## Example Usage
@@ -38,7 +37,7 @@ kong-plugin-gen [command]
 To create a new Kong plugin template, simply run:
 
 ```
-kong-plugin-gen create my-plugin
+create-kong-plugin my-plugin
 ```
 
 This will generate a folder with the following structure:
@@ -58,7 +57,7 @@ my-plugin/
 You can also generate an autocompletion script for your shell:
 
 ```
-kong-plugin-gen completion bash
+create-kong-plugin completion bash
 ```
 
 ## Flags
@@ -68,7 +67,7 @@ kong-plugin-gen completion bash
 To get more detailed help on a specific command, run:
 
 ```
-kong-plugin-gen [command] --help
+create-kong-plugin [command] --help
 ```
 
 ## Contributing
@@ -76,4 +75,4 @@ kong-plugin-gen [command] --help
 Feel free to submit issues, suggestions, or pull requests to the GitHub repository.
 
 ## License
-KongPluginGen is open-source and available under the MIT License.
+CreateKongPlugin is open-source and available under the MIT License.

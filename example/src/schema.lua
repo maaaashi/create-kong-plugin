@@ -1,5 +1,12 @@
 
 return {
 	name = "example",
-	fields = {},
+	fields = {
+			{ config = {
+					type = "record",
+					fields = {
+							{ my_option = { type = "string", required = true } },
+					},
+			}},
+	},
 }
