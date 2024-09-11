@@ -92,6 +92,7 @@ local {{.PluginName}} = {
 
 function {{.PluginName}}:access(conf)
 	-- plugin logic here
+	kong.log("This is an example plugin handler, conf: ", conf)
 end
 
 return {{.PluginName}}
