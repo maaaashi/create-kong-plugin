@@ -100,14 +100,7 @@ return {{.PluginName}}
 	schemaTemplate := `
 return {
 	name = "{{.PluginName}}",
-	fields = {
-			{ config = {
-					type = "record",
-					fields = {
-							{ my_option = { type = "string", required = true } },
-					},
-			}},
-	},
+	fields = {},
 }
 `
 
