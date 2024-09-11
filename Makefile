@@ -1,5 +1,5 @@
 build:
-	go build -o create-kong-plugin
+	go build -o create-kong-plugin && ./create-kong-plugin example
 docker-build:
 	docker build -t create-kong-plugin -f environments/Dockerfile .
 docker-run:
