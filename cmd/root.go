@@ -43,6 +43,7 @@ Key Features:
 ・Customize plugin names and structure
 ・Easy to use and lightweight
 `,
+	Args: cobra.MaximumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		reader := bufio.NewReader(os.Stdin)
 
