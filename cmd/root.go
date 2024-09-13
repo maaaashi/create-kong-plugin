@@ -22,10 +22,12 @@ THE SOFTWARE.
 package cmd
 
 import (
+	"bufio"
 	"fmt"
 	"html/template"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/spf13/cobra"
 )
@@ -124,9 +126,20 @@ Key Features:
 ・Customize plugin names and structure
 ・Easy to use and lightweight
 `,
-	Args: cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		pluginName := args[0]
+		reader := bufio.NewReader(os.Stdin)
+
+		pluginName := ""
+
+		if len(args) == 0 {
+			fmt.Print("Enter the plugin name: ")
+
+			name, _ := reader.ReadString('\n')
+			pluginName = strings.Split(name, "\n")[0]
+		} else {
+			pluginName = args[0]
+		}
+
 		fmt.Println("Creating a new Kong plugin template: ", pluginName)
 		createPluginTemplate(pluginName)
 	},
