@@ -34,8 +34,6 @@ func writeTemplateToFile(filePath, tmpl, pluginName string) {
 }
 
 func CreatePluginTemplate(pluginName string, mkdir bool) {
-	fmt.Println("Creating a new Kong plugin template: ", pluginName)
-
 	pluginRootDir := "."
 
 	if mkdir {

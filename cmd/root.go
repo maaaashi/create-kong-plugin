@@ -77,9 +77,11 @@ Key Features:
 			mkdirFlag = true
 		}
 
+		language := []string{"Lua", "Go", "JavaScript", "Python"}
+
 		prompt := promptui.Select{
 			Label: "Select Language",
-			Items: []string{"Lua"},
+			Items: language,
 		}
 
 		_, result, err := prompt.Run()
@@ -90,6 +92,19 @@ Key Features:
 		}
 
 		fmt.Printf("You chose %q\n", result)
+
+		fmt.Println("Creating a new Kong plugin template: ", pluginName)
+
+		p := promptui.Prompt{
+			Label:     "Creating a new Kong plugin template: " + pluginName + ". Continue",
+			IsConfirm: true,
+		}
+
+		_, err = p.Run()
+
+		if err != nil {
+			return
+		}
 
 		handler.CreatePluginTemplate(pluginName, mkdirFlag)
 	},
