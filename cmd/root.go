@@ -29,6 +29,7 @@ import (
 	"strings"
 
 	"github.com/maaaashi/create-kong-plugin/handler"
+	"github.com/manifoldco/promptui"
 	"github.com/spf13/cobra"
 )
 
@@ -63,6 +64,8 @@ Key Features:
 			return
 		}
 
+		mkdirFlag := false
+
 		if pluginName == "." {
 			wd, err := os.Getwd()
 			if err != nil {
@@ -70,10 +73,25 @@ Key Features:
 				return
 			}
 			pluginName = filepath.Base(wd)
-			handler.CreatePluginTemplate(pluginName, false)
 		} else {
-			handler.CreatePluginTemplate(pluginName, true)
+			mkdirFlag = true
 		}
+
+		prompt := promptui.Select{
+			Label: "Select Language",
+			Items: []string{"Lua"},
+		}
+
+		_, result, err := prompt.Run()
+
+		if err != nil {
+			fmt.Printf("Prompt failed %v\n", err)
+			return
+		}
+
+		fmt.Printf("You chose %q\n", result)
+
+		handler.CreatePluginTemplate(pluginName, mkdirFlag)
 	},
 }
 
