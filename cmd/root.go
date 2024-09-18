@@ -77,26 +77,22 @@ Key Features:
 			mkdirFlag = true
 		}
 
-		language := []string{"Lua", "Go", "JavaScript", "Python"}
+		languages := []string{"Lua", "Go", "JavaScript", "Python"}
 
 		prompt := promptui.Select{
 			Label: "Select Language",
-			Items: language,
+			Items: languages,
 		}
 
-		_, result, err := prompt.Run()
+		_, language, err := prompt.Run()
 
 		if err != nil {
 			fmt.Printf("Prompt failed %v\n", err)
 			return
 		}
 
-		fmt.Printf("You chose %q\n", result)
-
-		fmt.Println("Creating a new Kong plugin template: ", pluginName)
-
 		p := promptui.Prompt{
-			Label:     "Creating a new Kong plugin template: " + pluginName + ". Continue",
+			Label:     "Name: " + pluginName + ", Language: " + language + ". Continue?",
 			IsConfirm: true,
 		}
 
