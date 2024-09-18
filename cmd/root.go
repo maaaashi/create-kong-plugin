@@ -64,7 +64,7 @@ Key Features:
 			return
 		}
 
-		mkdirFlag := false
+		createDirectoryFlag := false
 
 		if pluginName == "." {
 			wd, err := os.Getwd()
@@ -74,10 +74,10 @@ Key Features:
 			}
 			pluginName = filepath.Base(wd)
 		} else {
-			mkdirFlag = true
+			createDirectoryFlag = true
 		}
 
-		languages := []string{"Lua", "Go", "JavaScript", "Python"}
+		languages := []string{"Lua", "x Go", "x JavaScript", "x Python"}
 
 		prompt := promptui.Select{
 			Label: "Select Language",
@@ -102,7 +102,7 @@ Key Features:
 			return
 		}
 
-		handler.CreatePluginTemplate(pluginName, mkdirFlag)
+		handler.CreatePluginTemplate(pluginName, language, createDirectoryFlag)
 	},
 }
 

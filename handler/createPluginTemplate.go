@@ -33,7 +33,7 @@ func writeTemplateToFile(filePath, tmpl, pluginName string) {
 	}
 }
 
-func CreatePluginTemplate(pluginName string, mkdir bool) {
+func CreatePluginTemplate(pluginName string, language string, mkdir bool) {
 	pluginRootDir := "."
 
 	if mkdir {
