@@ -66,17 +66,17 @@ build = {
 
 	// handler.lua テンプレート
 	handlerTemplate := `
-local {{.PluginName}} = {
+local plugin = {
 	VERSION = "1.0.0",
 	PRIORITY = 10,
 }
 
-function {{.PluginName}}:access(conf)
+function plugin:access(conf)
 	-- plugin logic here
 	kong.log("This is an example plugin handler, conf: ", conf)
 end
 
-return {{.PluginName}}
+return plugin
 `
 	// schema.lua テンプレート
 	schemaTemplate := `
