@@ -77,7 +77,7 @@ Key Features:
 			createDirectoryFlag = true
 		}
 
-		languages := []string{"Lua", "x Go", "x JavaScript", "x Python"}
+		languages := []string{"Lua", "Go", "x JavaScript", "x Python"}
 
 		prompt := promptui.Select{
 			Label: "Select Language",

@@ -1,12 +1,11 @@
-
-local example = {
+local plugin = {
 	VERSION = "1.0.0",
 	PRIORITY = 10,
 }
 
-function example:access(conf)
+function plugin:access(conf)
 	-- plugin logic here
 	kong.log("This is an example lua plugin handler, conf: ", conf)
 end
 
-return example
+return plugin
