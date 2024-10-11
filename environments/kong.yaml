@@ -9,3 +9,4 @@ services:
           - /test
         plugins:
           - name: example
+          - name: example-go

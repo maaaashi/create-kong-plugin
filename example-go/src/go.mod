@@ -1,4 +1,4 @@
-module github.com/example
+module github.com/example-go
 
 go 1.21
 

@@ -23,5 +23,5 @@ func New() interface{} {
 }
 
 func (conf Config) Access(kong *pdk.PDK) {
-	log.Println("This is an example plugin handler, conf: ", conf)
+	log.Println("This is an example golang plugin handler, conf: ", conf)
 }

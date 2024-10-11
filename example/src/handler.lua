@@ -6,7 +6,7 @@ local example = {
 
 function example:access(conf)
 	-- plugin logic here
-	kong.log("This is an example plugin handler, conf: ", conf)
+	kong.log("This is an example lua plugin handler, conf: ", conf)
 end
 
 return example
