@@ -77,18 +77,38 @@ Key Features:
 			createDirectoryFlag = true
 		}
 
-		languages := []string{"Lua", "Go", "x JavaScript", "x Python"}
-
-		prompt := promptui.Select{
-			Label: "Select Language",
-			Items: languages,
-		}
-
-		_, language, err := prompt.Run()
+		setLanguage, err := cmd.PersistentFlags().GetString("language")
 
 		if err != nil {
-			fmt.Printf("Prompt failed %v\n", err)
+			fmt.Println("Error getting language flag:", err)
 			return
+		}
+
+		if setLanguage != "" && setLanguage != "Lua" && setLanguage != "Go" {
+			fmt.Println("Invalid language. Supported languages are: Lua, Go")
+			return
+		}
+
+		var language string
+
+		if setLanguage != "" {
+			language = setLanguage
+		} else {
+			languages := []string{"Lua", "Go", "x JavaScript", "x Python"}
+
+			prompt := promptui.Select{
+				Label: "Select Language",
+				Items: languages,
+			}
+
+			_, lang, err := prompt.Run()
+
+			if err != nil {
+				fmt.Printf("Prompt failed %v\n", err)
+				return
+			}
+
+			language = lang
 		}
 
 		p := promptui.Prompt{
@@ -107,6 +127,8 @@ Key Features:
 }
 
 func Execute() {
+	rootCmd.PersistentFlags().StringP("language", "l", "", "Language to use for the plugin (Lua, Go)")
+
 	err := rootCmd.Execute()
 	if err != nil {
 		os.Exit(1)
