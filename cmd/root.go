@@ -33,6 +33,43 @@ import (
 	"github.com/spf13/cobra"
 )
 
+func selectLanguage(cmd *cobra.Command) (string, error) {
+	setLanguage, err := cmd.PersistentFlags().GetString("language")
+
+	if err != nil {
+		fmt.Println("Error getting language flag:", err)
+		return "", err
+	}
+
+	var language string
+
+	if setLanguage != "" {
+		language = setLanguage
+	} else {
+		languages := []string{"Lua", "Go", "x JavaScript", "x Python"}
+
+		prompt := promptui.Select{
+			Label: "Select Language",
+			Items: languages,
+		}
+
+		_, lang, err := prompt.Run()
+
+		if err != nil {
+			fmt.Printf("Prompt failed %v\n", err)
+			return "", err
+		}
+
+		language = lang
+	}
+
+	if language != "" && language != "Lua" && language != "Go" {
+		return "", fmt.Errorf("Invalid language. Supported languages are: Lua, Go")
+	}
+
+	return language, nil
+}
+
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "create-kong-plugin [plugin-name]",
@@ -77,38 +114,11 @@ Key Features:
 			createDirectoryFlag = true
 		}
 
-		setLanguage, err := cmd.PersistentFlags().GetString("language")
+		language, err := selectLanguage(cmd)
 
 		if err != nil {
-			fmt.Println("Error getting language flag:", err)
+			fmt.Println("Error selecting language:", err)
 			return
-		}
-
-		if setLanguage != "" && setLanguage != "Lua" && setLanguage != "Go" {
-			fmt.Println("Invalid language. Supported languages are: Lua, Go")
-			return
-		}
-
-		var language string
-
-		if setLanguage != "" {
-			language = setLanguage
-		} else {
-			languages := []string{"Lua", "Go", "x JavaScript", "x Python"}
-
-			prompt := promptui.Select{
-				Label: "Select Language",
-				Items: languages,
-			}
-
-			_, lang, err := prompt.Run()
-
-			if err != nil {
-				fmt.Printf("Prompt failed %v\n", err)
-				return
-			}
-
-			language = lang
 		}
 
 		p := promptui.Prompt{
