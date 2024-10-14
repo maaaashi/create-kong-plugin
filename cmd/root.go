@@ -64,10 +64,29 @@ func selectLanguage(cmd *cobra.Command) (string, error) {
 	}
 
 	if language != "" && language != "Lua" && language != "Go" {
-		return "", fmt.Errorf("Invalid language. Supported languages are: Lua, Go")
+		return "", fmt.Errorf("invalid language. Supported languages are: Lua, Go")
 	}
 
 	return language, nil
+}
+
+func setPluginName(reader *bufio.Reader, args []string) (string, error) {
+	pluginName := ""
+
+	if len(args) == 0 {
+		fmt.Print("Enter the plugin name: ")
+
+		name, _ := reader.ReadString('\n')
+		pluginName = strings.Split(name, "\n")[0]
+	} else {
+		pluginName = args[0]
+	}
+
+	if pluginName == "" {
+		return "", fmt.Errorf("plugin name cannot be empty")
+	}
+
+	return pluginName, nil
 }
 
 // rootCmd represents the base command when called without any subcommands
@@ -85,19 +104,10 @@ Key Features:
 	Run: func(cmd *cobra.Command, args []string) {
 		reader := bufio.NewReader(os.Stdin)
 
-		pluginName := ""
+		pluginName, err := setPluginName(reader, args)
 
-		if len(args) == 0 {
-			fmt.Print("Enter the plugin name: ")
-
-			name, _ := reader.ReadString('\n')
-			pluginName = strings.Split(name, "\n")[0]
-		} else {
-			pluginName = args[0]
-		}
-
-		if pluginName == "" {
-			fmt.Println("Plugin name cannot be empty")
+		if err != nil {
+			fmt.Println("Error setting plugin name:", err)
 			return
 		}
 
