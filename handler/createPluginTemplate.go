@@ -21,9 +21,9 @@ func CreatePluginTemplate(pluginName string, language string, mkdir bool) {
 
 	switch language {
 	case "Lua":
-		writeLuaTemplate(srcDir, pluginRootDir, pluginName)
+		WriteLuaTemplate(srcDir, pluginRootDir, pluginName)
 	case "Go":
-		writeGoTemplate(srcDir, pluginRootDir, pluginName)
+		WriteGoTemplate(srcDir, pluginRootDir, pluginName)
 	}
 
 	fmt.Printf("Kong plugin template for '%s' created successfully!\n", pluginName)

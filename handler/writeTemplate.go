@@ -33,7 +33,7 @@ func writeTemplateToFile(filePath, tmpl, pluginName string) {
 	}
 }
 
-func writeLuaTemplate(srcDir string, pluginRootDir string, pluginName string) {
+func WriteLuaTemplate(srcDir string, pluginRootDir string, pluginName string) {
 	// rockspec テンプレート
 	rockspecTemplate := `package = "kong-plugin-{{.PluginName}}"
 version = "0.1.0-1"
@@ -77,7 +77,7 @@ return plugin
 	writeTemplateToFile(filepath.Join(srcDir, "schema.lua"), schemaTemplate, pluginName)
 }
 
-func writeGoTemplate(srcDir string, pluginRootDir string, pluginName string) {
+func WriteGoTemplate(srcDir string, pluginRootDir string, pluginName string) {
 
 	mainGoTemplate := `package main
 
