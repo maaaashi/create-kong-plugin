@@ -24,6 +24,8 @@ func CreatePluginTemplate(pluginName string, language string, mkdir bool) {
 		WriteLuaTemplate(srcDir, pluginRootDir, pluginName)
 	case "Go":
 		WriteGoTemplate(srcDir, pluginRootDir, pluginName)
+	case "JavaScript":
+		WriteJSTemplate(srcDir, pluginRootDir, pluginName)
 	}
 
 	fmt.Printf("Kong plugin template for '%s' created successfully!\n", pluginName)

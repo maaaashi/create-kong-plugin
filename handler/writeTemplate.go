@@ -123,3 +123,7 @@ require (
 	writeTemplateToFile(filepath.Join(srcDir, "main.go"), mainGoTemplate, pluginName)
 	writeTemplateToFile(filepath.Join(srcDir, "go.mod"), goModTemplate, pluginName)
 }
+
+func WriteJSTemplate(srcDir string, pluginRootDir string, pluginName string) {
+	// todo
+}
