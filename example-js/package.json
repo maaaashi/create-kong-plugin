@@ -1,0 +1,9 @@
+{
+  "name": "example-js",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "description": "",
+  "dependencies": {
+    "kong-pdk": "^0.6.0"
+  }
+}
